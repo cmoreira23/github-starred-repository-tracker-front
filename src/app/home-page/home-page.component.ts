@@ -25,7 +25,7 @@ export class HomePageComponent implements AfterViewInit  {
 
   githubRepositories : GithubRepository[];
   dataSource :MatTableDataSource<GithubRepository>;
-  columnsToDisplay = ['name', 'forks_count', 'stargazers_count', 'url'];
+  columnsToDisplay = ['name', 'forks_count', 'stargazers_count', 'url','expanded'];
   expandedElement: GithubRepository | null;
   resultsLength = 0;
   updating = false;
@@ -91,7 +91,11 @@ export class HomePageComponent implements AfterViewInit  {
     if (this.languageFormControl.valid) {
       this.updating = true;
       let language = this.languageFormControl.value;
-      this.service.refresh(language).subscribe(x => this.updating = false, error => {
+      this.service.refresh(language).subscribe(x =>{ 
+        this.findAll();
+        this.updating = false
+        this.snackBar.open( "Sucesso ao importar os dados.", "x", this.config);
+      }, error => {
         if(error.status == "403"){
           this.snackBar.open( "Atingiu o número máximo de requisições para a APi Dp Git por hora.", "x", this.config);
         }
