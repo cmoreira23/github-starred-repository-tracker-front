@@ -1,0 +1,52 @@
+.cardFormField {
+  height: 12vh;
+  padding: 10px;
+  margin: 10px;
+}
+.cardTable{
+  padding: 10px;
+  margin: 10px;
+  height: 68vh;
+}
+.th-center{
+  text-align: center;
+}
+.th-left{
+  text-align: left;
+}
+.th-right{
+  text-align: right;
+}
+
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-description {
+  padding: 16px;
+}
+
+.element-description-attribution {
+  opacity: 0.5;
+}
